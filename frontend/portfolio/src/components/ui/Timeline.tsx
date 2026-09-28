@@ -409,7 +409,6 @@ export default function TimelinePage() {
                                     AI Engineer at DareData
                                 </Text>
                                 <Text fontSize="sm" color={titleColor}>Agentic and document-intelligence solutions for financial clients</Text>
-                                <Text fontSize="sm" color={titleColor}>Creator of complydoc, an open-source document checker for LLM pipelines</Text>
                                 <Text fontSize="sm" color={dateColor}>July 2026 (Ongoing)</Text>
                             </Timeline.Content>
                         </Timeline.Item>
