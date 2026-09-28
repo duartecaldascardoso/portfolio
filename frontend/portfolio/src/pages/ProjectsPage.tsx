@@ -4,6 +4,12 @@ import { FaGithub } from 'react-icons/fa';
 
 const projects = [
     {
+        title: 'complydoc',
+        href: 'https://github.com/complydoc/complydoc',
+        description: 'An open-source tool that checks documents before they reach an LLM. It measures what processing them will cost, how reliably text can be read off each page, which personal and financial identifiers they contain, and whether anything hidden in a file is addressed to a model. It runs entirely on your machine, from the command line, a notebook, a test suite or CI, and works with LangChain, LlamaIndex, Unstructured, Docling and more.',
+        stack: ['Python', 'Document Intelligence', 'LLM Security', 'Open Source', 'CI'],
+    },
+    {
         title: 'modus-laboratories',
         href: 'https://github.com/modus-laboratories',
         description: 'Modus Labs is a living startup I am building with college colleagues. It works as a living lab for product development, AI/ML experimentation, and applied projects.',

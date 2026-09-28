@@ -70,6 +70,8 @@ const publications: PublicationItem[] = [
 ];
 
 const courses: LearningItem[] = [
+    { title: 'Natural Language Processing (NLP) in Python', provider: 'DataCamp', date: 'Aug 2026' },
+    { title: 'Natural Language Processing with spaCy', provider: 'DataCamp', date: 'Aug 2026' },
     { title: 'Claude with Amazon Bedrock', provider: 'Anthropic', date: 'Mar 2026' },
     { title: 'LangSmith Essentials', provider: 'LangChain', date: 'Feb 2026' },
     { title: 'Machine Learning Model Development', provider: 'Databricks', date: 'Feb 2026' },
@@ -84,6 +86,11 @@ const books: LearningItem[] = [
 ];
 
 const projects: ProjectItem[] = [
+    {
+        title: 'complydoc',
+        href: 'https://github.com/complydoc/complydoc',
+        description: 'Open-source tool that checks documents for cost, security and extraction issues before they reach an LLM.',
+    },
     {
         title: 'modus-laboratories',
         href: 'https://github.com/modus-laboratories',

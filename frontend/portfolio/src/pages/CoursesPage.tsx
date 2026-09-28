@@ -4,6 +4,22 @@ import { FaBook, FaExternalLinkAlt, FaGraduationCap } from 'react-icons/fa';
 
 const courses = [
     {
+        title: 'Natural Language Processing (NLP) in Python',
+        provider: 'DataCamp',
+        providerLogo: 'https://cdn.simpleicons.org/datacamp',
+        date: 'Aug 2026',
+        description: 'Classical NLP techniques in Python, from text preprocessing and tokenization to feature extraction and text classification.',
+        href: 'https://www.linkedin.com/in/duartecardoso/details/certifications/',
+    },
+    {
+        title: 'Natural Language Processing with spaCy',
+        provider: 'DataCamp',
+        providerLogo: 'https://cdn.simpleicons.org/datacamp',
+        date: 'Aug 2026',
+        description: 'Building NLP pipelines with spaCy, covering linguistic features, named entity recognition, rule-based matching and custom pipeline components.',
+        href: 'https://www.linkedin.com/in/duartecardoso/details/certifications/',
+    },
+    {
         title: 'Claude with Amazon Bedrock',
         provider: 'Anthropic',
         providerLogo: 'https://cdn.simpleicons.org/anthropic',

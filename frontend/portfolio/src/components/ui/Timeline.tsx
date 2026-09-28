@@ -361,8 +361,9 @@ export default function TimelinePage() {
                                 <Text fontSize="lg" fontWeight="bold" color={titleColor}>
                                     Master's in Software Engineering - FEUP
                                 </Text>
-                                <Text fontSize="sm" color={titleColor}>Thesis titled: Product Validation Accelerator Engine</Text>
-                                <Text fontSize="sm" color={dateColor}>Sept 2024 - Expected July 2026</Text>
+                                <Text fontSize="sm" color={titleColor}>Thesis: Product Validation Accelerator Engine (19/20)</Text>
+                                <Text fontSize="sm" color={titleColor}>Final grade 18/20</Text>
+                                <Text fontSize="sm" color={dateColor}>September 2024 - July 2026</Text>
                             </Timeline.Content>
                             <Timeline.Connector>
                                 <Timeline.Separator borderColor={borderColor} />
@@ -407,7 +408,8 @@ export default function TimelinePage() {
                                 <Text fontSize="lg" fontWeight="bold" color={titleColor}>
                                     AI Engineer at DareData
                                 </Text>
-                                <Text fontSize="sm" color={titleColor}>Continuing to build applied AI solutions</Text>
+                                <Text fontSize="sm" color={titleColor}>Agentic and document-intelligence solutions for financial clients</Text>
+                                <Text fontSize="sm" color={titleColor}>Creator of complydoc, an open-source document checker for LLM pipelines</Text>
                                 <Text fontSize="sm" color={dateColor}>July 2026 (Ongoing)</Text>
                             </Timeline.Content>
                         </Timeline.Item>
