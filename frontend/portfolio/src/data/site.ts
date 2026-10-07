@@ -160,8 +160,9 @@ export const work: TimelineEntry[] = [
         details: [
             'Built the company’s official Document Intelligence tool on an Agentic RAG architecture, serving about 90 users company-wide since launch.',
             'Designed and developed Configure:it, a multi-agent Product Machine module that turns documents into product configurations and answers natural language questions about them.',
-            'Built my Master’s thesis in-house: the Product Validation Accelerator Engine combines LLM agents with combinatorial testing to turn a plain-language request into a complete test suite, cutting insurance product validation from about six months of manual client work to a handful of automated requests.',
-            'Supported a colleague’s thesis on LLM-based extraction of insurance product characteristics, leading to two co-authored papers.',
+            'Owned the whole validation engine of Product Machine, managing an intern and delivering a production-ready implementation.',
+            'Built one of its components as my in-house Master’s thesis, the Product Validation Accelerator Engine, which combines LLM agents with combinatorial testing to turn a plain-language request into a complete test suite, cutting insurance product validation from about six months of manual client work to a handful of automated requests.',
+            'Worked alongside two Master’s thesis students as their buddy at work, on LLM-based extraction of insurance product characteristics and natural-language exploration of product models, leading to two co-authored papers at SEI 2025.',
         ],
     },
     {
@@ -193,9 +194,17 @@ export const education: TimelineEntry[] = [
     },
 ];
 
-export type Hobby = { title: string; detail: string; period: string; image: string };
+// imagePosition: which part of the photo to keep when it is cropped to the card (CSS object-position).
+export type Hobby = { title: string; detail: string; period: string; image: string; imagePosition?: string };
 
 export const outsideWork: Hobby[] = [
+    {
+        title: 'Running and triathlon',
+        detail: 'Ran the Porto Half Marathon on 13 September 2026, and training for the Porto Marathon and Ironman 70.3 Vilamoura.',
+        period: '2026 – now',
+        image: asset('images/running.jpg'),
+        imagePosition: 'center 12%',
+    },
     {
         title: 'Bass in Mantra Rota',
         detail: 'Playing and writing songs with the band.',

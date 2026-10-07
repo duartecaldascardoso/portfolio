@@ -60,6 +60,7 @@ export default function AboutPage() {
                                     w="full"
                                     aspectRatio={4 / 3}
                                     objectFit="cover"
+                                    objectPosition={hobby.imagePosition}
                                     borderRadius="md"
                                     loading="lazy"
                                 />
