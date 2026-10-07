@@ -1,5 +1,7 @@
 import { Box, Flex, HStack, Image, Link, Stack, Text } from '@chakra-ui/react';
 import { Link as RouterLink } from 'react-router-dom';
+import { FaGithub, FaLinkedin } from 'react-icons/fa';
+import { LuFileText, LuMail } from 'react-icons/lu';
 import { PostList } from '../components/site/PostList';
 import { Section } from '../components/site/Section';
 import { links, profileImage, projectId, projects } from '../data/site';
@@ -51,12 +53,22 @@ export default function HomePage() {
 
                 <HStack gap={5} fontSize="sm" wrap="wrap">
                     {[
-                        { label: 'GitHub', href: links.github },
-                        { label: 'LinkedIn', href: links.linkedin },
-                        { label: 'Email', href: links.email },
-                        { label: 'CV', href: links.cv },
+                        { label: 'GitHub', href: links.github, icon: FaGithub },
+                        { label: 'LinkedIn', href: links.linkedin, icon: FaLinkedin },
+                        { label: 'Email', href: links.email, icon: LuMail },
+                        { label: 'CV', href: links.cv, icon: LuFileText },
                     ].map((item) => (
-                        <Link key={item.label} href={item.href} {...external} color="fg" _hover={{ color: 'fg.muted' }}>
+                        <Link
+                            key={item.label}
+                            href={item.href}
+                            {...external}
+                            color="fg"
+                            display="inline-flex"
+                            alignItems="center"
+                            gap={1.5}
+                            _hover={{ color: 'fg.muted' }}
+                        >
+                            <item.icon size={15} aria-hidden />
                             {item.label} ↗
                         </Link>
                     ))}
