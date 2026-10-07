@@ -123,34 +123,35 @@ export const courses: Course[] = [
     { title: 'Model Context Protocol: Advanced Topics', provider: 'Anthropic', date: 'Feb 2026' },
 ];
 
-export type Book = { title: string; author: string; cover: string; note: string; href: string };
+// isbns: editions to look up a cover for, in order of preference.
+export type Book = { title: string; author: string; isbns: string[]; note: string; href: string };
 
 export const books: Book[] = [
     {
         title: 'A Philosophy of Software Design',
         author: 'John Ousterhout',
-        cover: 'https://covers.openlibrary.org/b/isbn/9781732102217-M.jpg',
+        isbns: ['9781732102217', '9781732102200'],
         note: 'How to fight complexity with deep modules, information hiding and interfaces that are simple to use.',
         href: 'https://web.stanford.edu/~ouster/cgi-bin/book.php',
     },
     {
         title: 'AI Engineering',
         author: 'Chip Huyen',
-        cover: 'https://covers.openlibrary.org/b/isbn/9781098166304-M.jpg',
+        isbns: ['9781098166304'],
         note: 'Production-oriented guidance for designing and operating AI applications end to end.',
         href: 'https://www.oreilly.com/library/view/ai-engineering/9781098166298/',
     },
     {
         title: 'Designing Data-Intensive Applications',
         author: 'Martin Kleppmann',
-        cover: 'https://covers.openlibrary.org/b/isbn/9781449373320-M.jpg',
+        isbns: ['9781449373320'],
         note: 'A practical foundation for building reliable, scalable and maintainable data systems.',
         href: 'https://dataintensive.net/',
     },
     {
         title: 'Architecture Patterns with Python',
         author: 'Harry J.W. Percival and Bob Gregory',
-        cover: 'https://covers.openlibrary.org/b/isbn/9781492052203-M.jpg',
+        isbns: ['9781492052203'],
         note: 'Clear architecture and domain modelling patterns for maintainable Python systems.',
         href: 'https://www.cosmicpython.com/',
     },

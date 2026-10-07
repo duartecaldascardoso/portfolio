@@ -30,12 +30,40 @@ const ProviderLogo = ({ provider }: { provider: string }) => {
     );
 };
 
-// Covers come from Open Library; if one is missing, show a plain placeholder instead.
-const BookCover = ({ src }: { src: string }) => {
-    const [failed, setFailed] = useState(false);
+// Tries Open Library for each edition, then Google Books, and falls back to a plain
+// title card. Open Library answers a missing cover with a 1x1 image unless default=false.
+const coverSources = (isbns: string[]) => [
+    ...isbns.map((isbn) => `https://covers.openlibrary.org/b/isbn/${isbn}-M.jpg?default=false`),
+    ...isbns.map((isbn) => `https://books.google.com/books/content?vid=ISBN${isbn}&printsec=frontcover&img=1&zoom=1`),
+];
+
+const BookCover = ({ isbns, title }: { isbns: string[]; title: string }) => {
+    const sources = coverSources(isbns);
+    const [index, setIndex] = useState(0);
+    const next = () => setIndex((current) => current + 1);
     const frame = { w: '44px', h: '64px', borderRadius: 'sm', borderWidth: '1px', borderColor: 'border', flexShrink: 0 } as const;
-    if (failed) return <Box {...frame} bg="bg.muted" />;
-    return <Image src={src} alt="" objectFit="cover" loading="lazy" onError={() => setFailed(true)} {...frame} />;
+
+    if (index >= sources.length) {
+        return (
+            <Flex {...frame} bg="bg.muted" align="center" justify="center" p={1}>
+                <Text fontSize="7px" lineHeight="1.15" fontWeight="semibold" textAlign="center" color="fg.muted">
+                    {title}
+                </Text>
+            </Flex>
+        );
+    }
+    return (
+        <Image
+            key={sources[index]}
+            src={sources[index]}
+            alt=""
+            objectFit="cover"
+            loading="lazy"
+            onError={next}
+            onLoad={(event) => event.currentTarget.naturalWidth < 20 && next()}
+            {...frame}
+        />
+    );
 };
 
 export default function LearningPage() {
@@ -84,7 +112,7 @@ export default function LearningPage() {
                                 color="fg"
                                 _hover={{ textDecoration: 'none', '& .book-title': { textDecoration: 'underline' } }}
                             >
-                                <BookCover src={book.cover} />
+                                <BookCover isbns={book.isbns} title={book.title} />
                                 <Box>
                                     <Text className="book-title" fontWeight="medium">{book.title}</Text>
                                     <Text fontSize="sm" color="fg.muted">{book.author}</Text>
