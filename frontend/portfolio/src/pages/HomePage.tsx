@@ -33,14 +33,15 @@ export default function HomePage() {
 
                 <Stack gap={4} color="fg.muted" fontSize={{ base: 'md', md: 'lg' }} lineHeight="1.7">
                     <Text>
-                        I build agentic and document-intelligence solutions for the insurance and financial
-                        sectors at <Strong>DareData</Strong>. I studied Software Engineering at FEUP and started out as
-                        a software engineer before moving into AI in 2024.
+                        At <Strong>DareData</Strong> I build cloud-based agentic and document-intelligence solutions for
+                        clients in the financial sector, such as Euronext.
                     </Text>
                     <Text>
-                        Before that I spent three and a half years at <Strong>msg insur:it</Strong>, going from intern to the
-                        AI team, where I built the company’s document intelligence tool and Configure:it, a multi-agent
-                        module that turns product documents into insurance configurations.
+                        Before that I spent three and a half years at <Strong>msg insur:it</Strong>. I started as an intern,
+                        spent a year and a half as a software engineer on an enterprise insurance platform, and then moved
+                        to the AI team for two years. There I built the company’s document intelligence tool and
+                        Configure:it, a multi-agent module that turns product documents into insurance configurations,
+                        while finishing my Master’s in Software Engineering at FEUP.
                     </Text>
                     <Text>
                         I am an open-source advocate and the creator of{' '}
