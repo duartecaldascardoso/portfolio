@@ -19,7 +19,7 @@ originalSource: Medium
 originalUrl: https://medium.com/@caldasdcardoso/inside-the-langchain-x-manus-webinar-on-context-engineering-69166ee404db
 ---
 
-![](/images/blog/inside-the-langchain-x-manus-webinar-on-context-engineering/1.png)
+![Table comparing how Manus, Anthropic, Cognition and LangChain use the five context engineering strategies](/images/blog/inside-the-langchain-x-manus-webinar-on-context-engineering/1.png)
 
 On October 14th, LangChain hosted a webinar exploring one of the most critical emerging topics in AI systems: **Context Engineering**. Led by Lance Martin and featuring Yichao "Peak" from **Manus**, the session unpacked how context management is reshaping the design of agentic systems, especially in what many are calling *the year of agents*.
 
@@ -146,7 +146,7 @@ Tasks tailored toward expertise and that tend to take several turns/graph runs a
 
 The concept of keeping the active agent in the managed State is powerful when we have workflows that tend to be maintained by the same agent until he is no longer the expert that should be taking care of it.
 
-#### Swarms with Subgraphs
+## Swarms with Subgraphs
 
 One powerful feature in LangGraph is that subgraphs can themselves be compiled as agent units. This means that we do not have the need to treat every agent as a standalone unit - sometimes the agent is actually a subgraph (a workflow compiled to behave as a single agent unit).
 
@@ -157,7 +157,7 @@ For example:
 
 By nesting these subgraphs inside the swarm, you keep complexity manageable while still benefiting from isolated specialists.
 
-#### Usage example: Chess Experts in a Swarm
+## Usage example: Chess Experts in a Swarm
 
 To make this concrete, imagine a small swarm with two agents:
 
@@ -166,7 +166,7 @@ To make this concrete, imagine a small swarm with two agents:
 
 In this setup, the Opening Expert focuses purely on theory, while the Coach ensures you stay in your head during the game. Together, they form a supportive loop — handing off control as needed.
 
-\`\`\`
+\`\`\`python
 from langgraph.prebuilt import create_react_agent
 from langgraph_swarm import create_handoff_tool, create_swarm
 
@@ -215,7 +215,7 @@ app = agent_swarm.compile()
 
 Here, the default\\_active\\_agent is used to signal the agent that should start by interacting with the user. The standard practice is to maintain an active\\_agent in the State of the graph ([https://langchain-ai.github.io/langgraph/reference/swarm/#langgraph\\_swarm.swarm.SwarmState](https://langchain-ai.github.io/langgraph/reference/swarm/#langgraph_swarm.swarm.SwarmState))
 
-#### Considerations
+## Considerations
 
 While swarm architectures are powerful, they are not always the best solution. If agents need to constantly hand off control, the interaction can feel fragmented and harder to manage. Likewise, when many agents are involved, each must be equipped with the appropriate hand-off tools for all the possible agents, which increases complexity and coordination overhead. In these cases, a simpler graph design even an architecture such as Supervisor may work better.
 `,JA=`---
@@ -227,7 +227,7 @@ originalSource: Medium
 originalUrl: https://medium.com/@caldasdcardoso/the-last-layer-of-abstraction-6563b2d3df1b
 ---
 
-![](/images/blog/the-last-layer-of-abstraction/1.png)
+![A maze of black and white lines](/images/blog/the-last-layer-of-abstraction/1.png)
 
 Abstraction is in my view the concept that allowed the human race to evolve the most. Without it we would always be **reinventing the wheel** in the most literal sense, for each generation. Abstractions serve as the checkpoint for human knowledge, specially in complex systems.
 
@@ -254,7 +254,7 @@ originalSource: Medium
 originalUrl: https://medium.com/@caldasdcardoso/the-underrated-role-of-small-language-models-in-agentic-ai-66236a32c576
 ---
 
-![](/images/blog/the-underrated-role-of-small-language-models-in-agentic-ai/1.png)
+![Small language models next to large language models](/images/blog/the-underrated-role-of-small-language-models-in-agentic-ai/1.jpg)
 
 I recently stumbled upon a thought-evoking research paper from NVIDIA that challenged how I view AI agents. The premise was simple: we are probably using models that are way too big for what most AI agents actually need to do.
 
