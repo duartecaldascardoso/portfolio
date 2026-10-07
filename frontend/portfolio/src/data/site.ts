@@ -53,17 +53,6 @@ export const projects: Project[] = [
         featured: true,
     },
     {
-        name: 'Eunomia',
-        year: '2026',
-        summary: 'A productivity suite, in stealth under Modus Labs.',
-        description:
-            'A productivity suite combining automatic metrics collection, machine learning data analysis, agentic calendar planning, and a social network for shared or competitive goals with friends. Built under Modus Labs and currently in stealth development.',
-        stack: ['PyTorch', 'scikit-learn', 'Django', 'React', 'LangGraph', 'AG-UI'],
-        href: 'https://github.com/duartecaldascardoso/Eunomia',
-        icon: asset('config/projects/Eunomia.png'),
-        featured: true,
-    },
-    {
         name: 'article-explainer',
         year: '2025',
         summary: 'A swarm of agents that explains scientific articles.',
@@ -76,20 +65,12 @@ export const projects: Project[] = [
     {
         name: 'me-agent',
         year: '2025',
-        summary: 'A documented baseline for building your own RAG system.',
+        summary: 'An end-to-end agentic RAG system.',
         description:
-            'A RAG pipeline with user-focused documentation covering ingestion, retrieval and agentic interaction, meant as a practical starting point for custom RAG systems.',
-        stack: ['Python', 'RAG', 'Vector search'],
+            'An end-to-end agentic RAG system, from document ingestion and retrieval to an agent that answers with the retrieved context. It comes with user-focused documentation, so it works as a practical starting point for building your own.',
+        stack: ['Python', 'Agentic RAG', 'Vector search'],
         href: 'https://github.com/duartecaldascardoso/me-agent',
-    },
-    {
-        name: 'Modus Labs',
-        year: '2025',
-        summary: 'A small lab for products and AI experiments.',
-        description:
-            'A startup I am building with college colleagues, working as a living lab for product development, AI and ML experimentation, and applied projects.',
-        stack: ['Product', 'AI/ML', 'Prototyping'],
-        href: 'https://github.com/modus-laboratories',
+        featured: true,
     },
 ];
 

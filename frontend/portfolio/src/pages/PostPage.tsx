@@ -1,4 +1,5 @@
-import { Box, Link, Stack, Text } from '@chakra-ui/react';
+import { Box, Flex, Link, Stack, Text } from '@chakra-ui/react';
+import { FaLinkedin } from 'react-icons/fa';
 import { Link as RouterLink, Navigate, useParams } from 'react-router-dom';
 import { Markdown } from '../components/site/Markdown';
 import { formatDate, getPost, posts } from '../lib/blog';
@@ -11,6 +12,7 @@ export default function PostPage() {
 
     if (!post) return <Navigate to="/blog" replace />;
 
+    const fromLinkedIn = post.originalSource === 'LinkedIn' && Boolean(post.originalUrl);
     const index = posts.indexOf(post);
     const newer = posts[index - 1];
     const older = posts[index + 1];
@@ -25,9 +27,24 @@ export default function PostPage() {
                 <Text as="h1" fontSize={{ base: '2xl', md: '3xl' }} fontWeight="semibold" lineHeight="1.25" letterSpacing="-0.02em">
                     {post.title}
                 </Text>
-                <Text fontSize="sm" color="fg.muted">
-                    <time dateTime={post.date}>{formatDate(post.date)}</time> · {post.readingMinutes} min read
-                </Text>
+                <Flex align="center" justify="space-between" gap={4}>
+                    <Text fontSize="sm" color="fg.muted">
+                        <time dateTime={post.date}>{formatDate(post.date)}</time> · {post.readingMinutes} min read
+                    </Text>
+                    {fromLinkedIn && (
+                        <Link
+                            href={post.originalUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            aria-label="Open this post on LinkedIn"
+                            title="Open on LinkedIn"
+                            color="fg.muted"
+                            _hover={{ color: '#0A66C2' }}
+                        >
+                            <FaLinkedin size={18} />
+                        </Link>
+                    )}
+                </Flex>
             </Stack>
 
             <Markdown>{post.body}</Markdown>
@@ -35,7 +52,19 @@ export default function PostPage() {
             {post.originalUrl && (
                 <Text mt={12} fontSize="sm" color="fg.muted">
                     Originally published on{' '}
-                    <Link href={post.originalUrl} target="_blank" rel="noopener noreferrer" color="fg.muted" textDecoration="underline">
+                    <Link
+                        href={post.originalUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        color="fg.muted"
+                        textDecoration="underline"
+                        display="inline-flex"
+                        alignItems="center"
+                        gap={1}
+                        verticalAlign="bottom"
+                        _hover={{ color: fromLinkedIn ? '#0A66C2' : 'fg' }}
+                    >
+                        {fromLinkedIn && <FaLinkedin />}
                         {post.originalSource ?? 'another site'}
                     </Link>
                     .
