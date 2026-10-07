@@ -1,4 +1,4 @@
-import { StrictMode } from 'react'
+import { StrictMode, lazy, Suspense } from 'react'
 import { createRoot } from 'react-dom/client'
 import { ChakraProvider } from '@chakra-ui/react'
 import { ColorModeProvider } from './components/ui/color-mode.tsx'
@@ -7,10 +7,12 @@ import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom'
 import { Layout } from './components/site/Layout';
 import HomePage from './pages/HomePage';
 import BlogPage from './pages/BlogPage';
-import PostPage from './pages/PostPage';
 import ProjectsPage from './pages/ProjectsPage';
 import AboutPage from './pages/AboutPage';
 import LearningPage from './pages/LearningPage';
+
+// Posts load the Markdown and code-highlighting libraries, so they are fetched only when a post is opened.
+const PostPage = lazy(() => import('./pages/PostPage'));
 
 const basename = import.meta.env.BASE_URL.replace(/\/$/, '')
 
@@ -36,7 +38,7 @@ createRoot(document.getElementById('root')!).render(
             <Route element={<Layout />}>
               <Route path="/" element={<HomePage />} />
               <Route path="/blog" element={<BlogPage />} />
-              <Route path="/blog/:slug" element={<PostPage />} />
+              <Route path="/blog/:slug" element={<Suspense fallback={null}><PostPage /></Suspense>} />
               <Route path="/projects" element={<ProjectsPage />} />
               <Route path="/about" element={<AboutPage />} />
               <Route path="/learning" element={<LearningPage />} />

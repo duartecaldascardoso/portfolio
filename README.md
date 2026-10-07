@@ -42,4 +42,4 @@ Every push to `main` builds the site and publishes it to the `gh-pages` branch (
 
 ### 📈 Analytics
 
-Visits are counted with [GoatCounter](https://www.goatcounter.com), which needs no cookies or consent banner. Create a site there, then add its code (the `name` in `name.goatcounter.com`) as a repository variable called `GOATCOUNTER_CODE` under Settings → Secrets and variables → Actions → Variables. The next deploy turns it on.
+Visits are counted with [GoatCounter](https://www.goatcounter.com), which needs no cookies or consent banner. The dashboard is at https://caldasdcardoso.goatcounter.com, and the site code is set in `frontend/portfolio/src/lib/analytics.ts`.

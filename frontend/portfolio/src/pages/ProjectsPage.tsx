@@ -43,6 +43,21 @@ export default function ProjectsPage() {
                                 borderWidth="1px"
                                 borderColor="border"
                                 loading="lazy"
+                                _dark={project.imageDark ? { display: 'none' } : undefined}
+                            />
+                        )}
+                        {project.imageDark && (
+                            <Image
+                                src={project.imageDark}
+                                alt={`${project.name} screenshot`}
+                                mt={5}
+                                w="full"
+                                borderRadius="md"
+                                borderWidth="1px"
+                                borderColor="border"
+                                loading="lazy"
+                                display="none"
+                                _dark={{ display: 'block' }}
                             />
                         )}
 

@@ -1,10 +1,31 @@
 import { Box } from '@chakra-ui/react';
 import ReactMarkdown from 'react-markdown';
+import rehypeHighlight from 'rehype-highlight';
 import remarkGfm from 'remark-gfm';
 
 // Typography for blog posts. Headings, links, quotes, lists, tables, code and images
 // all come from plain Markdown, so a post never needs any React.
+// Code colours, after GitHub's light and dark themes. Fenced blocks are highlighted by
+// language (```python), and blocks without one have their language guessed.
+const syntax = (light: string, dark: string) => ({ color: light, _dark: { color: dark } });
+
+const highlighting = {
+    '& .hljs-comment, & .hljs-quote': { ...syntax('#6e7781', '#8b949e'), fontStyle: 'italic' },
+    '& .hljs-keyword, & .hljs-selector-tag, & .hljs-meta .hljs-keyword, & .hljs-template-tag, & .hljs-type': syntax('#cf222e', '#ff7b72'),
+    '& .hljs-string, & .hljs-regexp, & .hljs-meta .hljs-string': syntax('#0a3069', '#a5d6ff'),
+    '& .hljs-number, & .hljs-literal, & .hljs-variable, & .hljs-template-variable, & .hljs-attr, & .hljs-attribute, & .hljs-selector-attr, & .hljs-selector-class, & .hljs-selector-id':
+        syntax('#0550ae', '#79c0ff'),
+    '& .hljs-title, & .hljs-title.function_, & .hljs-section': syntax('#8250df', '#d2a8ff'),
+    '& .hljs-title.class_, & .hljs-built_in, & .hljs-symbol': syntax('#953800', '#ffa657'),
+    '& .hljs-name, & .hljs-tag, & .hljs-selector-pseudo': syntax('#116329', '#7ee787'),
+    '& .hljs-params, & .hljs-subst': syntax('#24292f', '#c9d1d9'),
+    '& .hljs-meta': syntax('#6e7781', '#8b949e'),
+    '& .hljs-addition': { ...syntax('#116329', '#aff5b4'), bg: { base: '#dafbe1', _dark: '#033a16' } },
+    '& .hljs-deletion': { ...syntax('#82071e', '#ffdcd7'), bg: { base: '#ffebe9', _dark: '#67060c' } },
+};
+
 const prose = {
+    ...highlighting,
     fontFamily: 'serif',
     fontSize: { base: '17px', md: '18px' },
     lineHeight: '1.75',
@@ -74,6 +95,7 @@ export const Markdown = ({ children }: { children: string }) => (
     <Box css={prose}>
         <ReactMarkdown
             remarkPlugins={[remarkGfm]}
+            rehypePlugins={[[rehypeHighlight, { detect: true }]]}
             components={{
                 a: ({ href, children: label }) => {
                     const external = href?.startsWith('http');

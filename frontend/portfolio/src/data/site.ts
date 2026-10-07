@@ -20,6 +20,7 @@ export type Project = {
     website?: string;
     icon?: string;
     image?: string;
+    imageDark?: string;
     featured?: boolean;
 };
 
@@ -36,7 +37,8 @@ export const projects: Project[] = [
         href: 'https://github.com/complydoc/complydoc',
         website: 'https://complydoc.github.io/complydoc/',
         icon: asset('config/projects/complydoc.svg'),
-        image: asset('images/complydoc-report.jpg'),
+        image: asset('images/complydoc-traces-light.webp'),
+        imageDark: asset('images/complydoc-traces-dark.webp'),
         featured: true,
     },
     {
@@ -124,6 +126,13 @@ export const courses: Course[] = [
 export type Book = { title: string; author: string; cover: string; note: string; href: string };
 
 export const books: Book[] = [
+    {
+        title: 'A Philosophy of Software Design',
+        author: 'John Ousterhout',
+        cover: 'https://covers.openlibrary.org/b/isbn/9781732102217-M.jpg',
+        note: 'How to fight complexity with deep modules, information hiding and interfaces that are simple to use.',
+        href: 'https://web.stanford.edu/~ouster/cgi-bin/book.php',
+    },
     {
         title: 'AI Engineering',
         author: 'Chip Huyen',

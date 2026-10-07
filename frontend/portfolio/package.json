@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://duartecaldascardoso.github.io/dev-portfolio",
+  "homepage": "https://duartecaldascardoso.github.io/portfolio",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
@@ -21,7 +21,9 @@
     "react-icons": "^5.5.0",
     "react-markdown": "^10.1.0",
     "react-router-dom": "^7.10.1",
-    "remark-gfm": "^4.0.1"
+    "rehype-highlight": "^7.0.2",
+    "remark-gfm": "^4.0.1",
+    "simple-icons": "^16.34.0"
   },
   "devDependencies": {
     "@eslint/js": "^9.29.0",

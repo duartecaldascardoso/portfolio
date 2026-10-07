@@ -1,7 +1,42 @@
 import { Box, Flex, Image, Link, Stack, Text } from '@chakra-ui/react';
 import { PageHeader, Section } from '../components/site/Section';
 import { books, courses, links } from '../data/site';
+import { useState } from 'react';
 import { useTitle } from '../lib/useTitle';
+import { siAnthropic, siDatabricks, siDatacamp, siLangchain, type SimpleIcon } from 'simple-icons';
+
+const providerLogos: Record<string, SimpleIcon> = {
+    Anthropic: siAnthropic,
+    DataCamp: siDatacamp,
+    Databricks: siDatabricks,
+    LangChain: siLangchain,
+};
+
+// Brand colours, except near-black ones, which follow the text colour so they show in dark mode.
+const logoColor = (hex: string) => {
+    const [r, g, b] = [0, 2, 4].map((offset) => parseInt(hex.slice(offset, offset + 2), 16));
+    return 0.299 * r + 0.587 * g + 0.114 * b < 60 ? 'currentColor' : `#${hex}`;
+};
+
+const ProviderLogo = ({ provider }: { provider: string }) => {
+    const icon = providerLogos[provider];
+    if (!icon) return <Box boxSize="18px" flexShrink={0} />;
+    return (
+        <Box as="span" display="inline-flex" boxSize="18px" flexShrink={0} color="fg" aria-hidden>
+            <svg viewBox="0 0 24 24" width="18" height="18" fill={logoColor(icon.hex)}>
+                <path d={icon.path} />
+            </svg>
+        </Box>
+    );
+};
+
+// Covers come from Open Library; if one is missing, show a plain placeholder instead.
+const BookCover = ({ src }: { src: string }) => {
+    const [failed, setFailed] = useState(false);
+    const frame = { w: '44px', h: '64px', borderRadius: 'sm', borderWidth: '1px', borderColor: 'border', flexShrink: 0 } as const;
+    if (failed) return <Box {...frame} bg="bg.muted" />;
+    return <Image src={src} alt="" objectFit="cover" loading="lazy" onError={() => setFailed(true)} {...frame} />;
+};
 
 export default function LearningPage() {
     useTitle('Learning');
@@ -22,9 +57,14 @@ export default function LearningPage() {
                                 <Text fontSize="sm" color="fg.muted" w={{ sm: '84px' }} flexShrink={0} pt={{ sm: '2px' }}>
                                     {course.date}
                                 </Text>
-                                <Text>
-                                    {course.title} <Text as="span" color="fg.muted">· {course.provider}</Text>
-                                </Text>
+                                <Flex gap={3} align="flex-start">
+                                    <Box pt="3px">
+                                        <ProviderLogo provider={course.provider} />
+                                    </Box>
+                                    <Text>
+                                        {course.title} <Text as="span" color="fg.muted">· {course.provider}</Text>
+                                    </Text>
+                                </Flex>
                             </Flex>
                         ))}
                     </Stack>
@@ -44,18 +84,7 @@ export default function LearningPage() {
                                 color="fg"
                                 _hover={{ textDecoration: 'none', '& .book-title': { textDecoration: 'underline' } }}
                             >
-                                <Image
-                                    src={book.cover}
-                                    alt=""
-                                    w="44px"
-                                    h="64px"
-                                    objectFit="cover"
-                                    borderRadius="sm"
-                                    borderWidth="1px"
-                                    borderColor="border"
-                                    flexShrink={0}
-                                    loading="lazy"
-                                />
+                                <BookCover src={book.cover} />
                                 <Box>
                                     <Text className="book-title" fontWeight="medium">{book.title}</Text>
                                     <Text fontSize="sm" color="fg.muted">{book.author}</Text>

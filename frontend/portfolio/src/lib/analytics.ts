@@ -2,9 +2,9 @@ import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 
 // GoatCounter (https://www.goatcounter.com): free, no cookies, no consent banner needed.
-// Set VITE_GOATCOUNTER_CODE to the site code (the "duarte" in duarte.goatcounter.com)
-// to turn it on; without it nothing is loaded.
-const code = import.meta.env.VITE_GOATCOUNTER_CODE as string | undefined;
+// Stats are at https://caldasdcardoso.goatcounter.com. Page views are counted on each
+// route change, and never during local development.
+const code = (import.meta.env.VITE_GOATCOUNTER_CODE as string | undefined) || 'caldasdcardoso';
 
 type GoatCounter = { count: (vars: { path: string; title?: string }) => void };
 declare global {
