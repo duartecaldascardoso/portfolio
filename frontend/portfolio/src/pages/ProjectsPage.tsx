@@ -64,6 +64,11 @@ export default function ProjectsPage() {
                         <Flex mt={4} gap={4} wrap="wrap" align="center" fontSize="sm">
                             <Text color="fg.subtle">{project.stack.join(' · ')}</Text>
                             <HStack gap={4} ml={{ sm: 'auto' }}>
+                                {project.package && (
+                                    <Link href={project.package} target="_blank" rel="noopener noreferrer" color="fg" _hover={{ color: 'fg.muted' }}>
+                                        PyPI ↗
+                                    </Link>
+                                )}
                                 {project.website && (
                                     <Link href={project.website} target="_blank" rel="noopener noreferrer" color="fg" _hover={{ color: 'fg.muted' }}>
                                         Website ↗

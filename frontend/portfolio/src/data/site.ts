@@ -18,6 +18,7 @@ export type Project = {
     stack: string[];
     href: string;
     website?: string;
+    package?: string;
     icon?: string;
     image?: string;
     imageDark?: string;
@@ -32,10 +33,11 @@ export const projects: Project[] = [
         year: '2026',
         summary: 'Checks documents before they reach an LLM.',
         description:
-            'An open-source tool that inspects documents, and the output of document loaders, before they are sent to an LLM. It measures what processing them will cost, how reliably text can be read off each page, which personal and financial identifiers they contain, and whether anything hidden in a file is addressed to a model. It runs entirely on your machine, from the command line, a notebook, a test suite or CI, and works with LangChain, LlamaIndex, Unstructured, Docling and more.',
-        stack: ['Python', 'Document intelligence', 'LLM security'],
+            'Open-source observability for document ingestion pipelines, published on PyPI. It traces every loading, splitting and embedding step with timing, token counts and cost, and puts each loader’s reading side by side with the source page, a diff for extracted documents, so you can see lost headings, broken tables or dropped lines and pick the loader that fits your documents. complydoc check adds YAML policies and a GitHub Action that gate ingestion in CI, flagging personal and financial identifiers, hidden text and prompt-injection passages, masked until reviewed. It runs fully locally, with outbound network blocked by default, and works with LangChain, LlamaIndex, Unstructured, Docling, LlamaParse and Azure Document Intelligence.',
+        stack: ['Python', 'CLI', 'GitHub Actions', 'LangChain', 'LlamaIndex', 'Docling'],
         href: 'https://github.com/complydoc/complydoc',
         website: 'https://complydoc.github.io/complydoc/',
+        package: 'https://pypi.org/project/complydoc/',
         icon: asset('config/projects/complydoc.svg'),
         image: asset('images/complydoc-traces-light.webp'),
         imageDark: asset('images/complydoc-traces-dark.webp'),
@@ -46,7 +48,7 @@ export const projects: Project[] = [
         year: '2026',
         summary: 'An insanely fast side-by-side diff viewer.',
         description:
-            'A side-by-side diff viewer for git branches, uncommitted changes and patch files, served from a small Rust binary with an embedded React UI. Run it in any repository, pipe a diff into it, or drop a patch onto the page, then search files with / and jump between them with j and k.',
+            'A fast side-by-side diff viewer for git branches, uncommitted changes and patch files, served from a small Rust binary with an embedded React UI. Run it in any repository, pipe a diff into it, or drop a patch onto the page, then search files with / and jump between them with j and k. One-line installers cover macOS, Linux and Windows.',
         stack: ['Rust', 'React', 'TypeScript'],
         href: 'https://github.com/duartecaldascardoso/snappy-diff',
         image: asset('images/snappy-diff.jpg'),
@@ -67,8 +69,8 @@ export const projects: Project[] = [
         year: '2025',
         summary: 'An end-to-end agentic RAG system.',
         description:
-            'An end-to-end agentic RAG system, from document ingestion and retrieval to an agent that answers with the retrieved context. It comes with user-focused documentation, so it works as a practical starting point for building your own.',
-        stack: ['Python', 'Agentic RAG', 'Vector search'],
+            'An end-to-end agentic RAG system for personal documents: PDF, DOCX and Markdown are ingested into a vector store, retrieved, and answered by an agent with that context, served through a streaming FastAPI endpoint and a CLI.',
+        stack: ['Python', 'LangChain', 'FastAPI', 'uv'],
         href: 'https://github.com/duartecaldascardoso/me-agent',
         featured: true,
     },
@@ -146,28 +148,33 @@ export const work: TimelineEntry[] = [
         title: 'AI Engineer',
         place: 'DareData',
         period: 'Jul 2026 – now',
-        details: ['Agentic and document-intelligence solutions for clients in the financial sector.'],
+        details: [
+            'AI consultant for Euronext, designing, developing and deploying cloud-native AI solutions on AWS and Azure that automate operational workflows.',
+            'Main developer of FreeFloat, a Dataiku-integrated browser agent (Strands, AWS) automating free float review across 614 companies, targeting about 120 person-days saved a year across four review cycles.',
+        ],
     },
     {
         title: 'AI Engineer',
         place: 'msg insur:it Iberia',
         period: 'Aug 2024 – Jul 2026',
         details: [
-            'Built the company’s official Document Intelligence tool on an Agentic RAG architecture.',
-            'Designed Configure:it, a multi-agent Product Machine module that turns product documents into configurations.',
+            'Built the company’s official Document Intelligence tool on an Agentic RAG architecture, serving about 90 users company-wide since launch.',
+            'Designed and developed Configure:it, a multi-agent Product Machine module that turns documents into product configurations and answers natural language questions about them.',
+            'Built my Master’s thesis in-house: the Product Validation Accelerator Engine combines LLM agents with combinatorial testing to turn a plain-language request into a complete test suite, cutting insurance product validation from about six months of manual client work to a handful of automated requests.',
+            'Supported a colleague’s thesis on LLM-based extraction of insurance product characteristics, leading to two co-authored papers.',
         ],
     },
     {
         title: 'Software Engineer',
         place: 'msg insur:it Iberia',
         period: 'Jun 2023 – Aug 2024',
-        details: ['Full-stack work on an enterprise insurance platform for a North American client, in Java, Backbone and PostgreSQL.'],
+        details: ['Full-stack engineer on an enterprise insurance web application for a North American client, in Java Spring, Backbone.js and PostgreSQL, contributing to a go-live with a single bug reported across the whole production setup.'],
     },
     {
         title: 'Intern',
         place: 'msg insur:it Iberia',
         period: 'Feb 2023 – Jun 2023',
-        details: ['An end-to-end quote-and-buy insurance proof of concept on Camunda, plus an open-source Camunda contribution.'],
+        details: ['Built an end-to-end insurance product proof of concept, with workflows in Camunda (BPMN/DMN) integrated with Java services.'],
     },
 ];
 
@@ -176,13 +183,13 @@ export const education: TimelineEntry[] = [
         title: 'MSc in Software Engineering',
         place: 'FEUP',
         period: 'Sep 2024 – Jul 2026',
-        details: ['Thesis: Product Validation Accelerator Engine (19/20). Final grade 18/20.'],
+        details: ['Final grade 18/20. Thesis, Product Validation Accelerator Engine, defended with 19/20.'],
     },
     {
-        title: 'BSc in Software Engineering',
+        title: 'BSc in Informatics and Computing Engineering',
         place: 'ISEP',
         period: 'Sep 2020 – Sep 2023',
-        details: ['Vice-president of the Informatics Student Group, and player in the volleyball team.'],
+        details: ['Final grade 14/20. Vice-president of NEI, the student association, leading a team of close to 40, and player in the volleyball team.'],
     },
 ];
 
