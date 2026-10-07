@@ -20,7 +20,7 @@ export default function BlogPage() {
 
             {years.map((year) => (
                 <Section key={year} title={year}>
-                    <PostList posts={posts.filter((post) => post.date.startsWith(year))} withSummary />
+                    <PostList posts={posts.filter((post) => post.date.startsWith(year))} withSummary withSource />
                 </Section>
             ))}
 

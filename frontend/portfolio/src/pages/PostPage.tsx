@@ -1,5 +1,6 @@
 import { Box, Flex, Link, Stack, Text } from '@chakra-ui/react';
 import { FaLinkedin } from 'react-icons/fa';
+import { SourceLink } from '../components/site/SourceLink';
 import { Link as RouterLink, Navigate, useParams } from 'react-router-dom';
 import { Markdown } from '../components/site/Markdown';
 import { formatDate, getPost, posts } from '../lib/blog';
@@ -31,19 +32,7 @@ export default function PostPage() {
                     <Text fontSize="sm" color="fg.muted">
                         <time dateTime={post.date}>{formatDate(post.date)}</time> · {post.readingMinutes} min read
                     </Text>
-                    {fromLinkedIn && (
-                        <Link
-                            href={post.originalUrl}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            aria-label="Open this post on LinkedIn"
-                            title="Open on LinkedIn"
-                            color="fg.muted"
-                            _hover={{ color: '#0A66C2' }}
-                        >
-                            <FaLinkedin size={18} />
-                        </Link>
-                    )}
+                    <SourceLink post={post} size={18} />
                 </Flex>
             </Stack>
 
