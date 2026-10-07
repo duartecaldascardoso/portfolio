@@ -1,11 +1,8 @@
 name: Import Medium articles
 
-# One-off: copies the Medium articles into src/content/blog and commits them.
-# Runs when the import script changes, or by hand from the Actions tab.
+# Copies the Medium articles into src/content/blog and commits them. It already ran once;
+# start it again from the Actions tab if needed. Existing posts are never overwritten.
 on:
-  push:
-    branches: [main]
-    paths: [frontend/portfolio/scripts/import-medium.mjs]
   workflow_dispatch:
 
 permissions:

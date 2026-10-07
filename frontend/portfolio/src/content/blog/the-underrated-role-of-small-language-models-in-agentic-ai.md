@@ -7,7 +7,7 @@ originalSource: Medium
 originalUrl: https://medium.com/@caldasdcardoso/the-underrated-role-of-small-language-models-in-agentic-ai-66236a32c576
 ---
 
-![](/images/blog/the-underrated-role-of-small-language-models-in-agentic-ai/1.png)
+![Small language models next to large language models](/images/blog/the-underrated-role-of-small-language-models-in-agentic-ai/1.jpg)
 
 I recently stumbled upon a thought-evoking research paper from NVIDIA that challenged how I view AI agents. The premise was simple: we are probably using models that are way too big for what most AI agents actually need to do.
 

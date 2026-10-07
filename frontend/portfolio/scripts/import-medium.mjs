@@ -81,10 +81,19 @@ function cleanHtml(html, title) {
 
 // Medium uses h3 and h4 for article headings; shift them so the largest becomes h2.
 function normaliseHeadings(markdown) {
-    const levels = [...markdown.matchAll(/^(#{1,6}) /gm)].map((match) => match[1].length);
+    // Code blocks are left alone, so comments such as `## setup` are not taken for headings.
+    const parts = markdown.split(/(^```[\s\S]*?^```)/m);
+    const prose = parts.filter((_part, index) => index % 2 === 0).join('\n');
+    const levels = [...prose.matchAll(/^(#{1,6}) /gm)].map((match) => match[1].length);
     if (levels.length === 0) return markdown;
     const shift = Math.min(...levels) - 2;
-    return markdown.replace(/^(#{1,6}) /gm, (_match, hashes) => `${'#'.repeat(Math.max(2, hashes.length - shift))} `);
+    return parts
+        .map((part, index) =>
+            index % 2 === 1
+                ? part
+                : part.replace(/^(#{1,6}) /gm, (_match, hashes) => `${'#'.repeat(Math.max(2, hashes.length - shift))} `),
+        )
+        .join('');
 }
 
 async function downloadImages(markdown, slug) {

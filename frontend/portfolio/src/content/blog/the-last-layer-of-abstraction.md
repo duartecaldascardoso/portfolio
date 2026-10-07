@@ -7,7 +7,7 @@ originalSource: Medium
 originalUrl: https://medium.com/@caldasdcardoso/the-last-layer-of-abstraction-6563b2d3df1b
 ---
 
-![](/images/blog/the-last-layer-of-abstraction/1.png)
+![A maze of black and white lines](/images/blog/the-last-layer-of-abstraction/1.png)
 
 Abstraction is in my view the concept that allowed the human race to evolve the most. Without it we would always be **reinventing the wheel** in the most literal sense, for each generation. Abstractions serve as the checkpoint for human knowledge, specially in complex systems.
 

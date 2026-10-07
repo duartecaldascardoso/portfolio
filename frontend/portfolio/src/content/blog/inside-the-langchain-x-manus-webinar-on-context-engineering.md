@@ -7,7 +7,7 @@ originalSource: Medium
 originalUrl: https://medium.com/@caldasdcardoso/inside-the-langchain-x-manus-webinar-on-context-engineering-69166ee404db
 ---
 
-![](/images/blog/inside-the-langchain-x-manus-webinar-on-context-engineering/1.png)
+![Table comparing how Manus, Anthropic, Cognition and LangChain use the five context engineering strategies](/images/blog/inside-the-langchain-x-manus-webinar-on-context-engineering/1.png)
 
 On October 14th, LangChain hosted a webinar exploring one of the most critical emerging topics in AI systems: **Context Engineering**. Led by Lance Martin and featuring Yichao "Peak" from **Manus**, the session unpacked how context management is reshaping the design of agentic systems, especially in what many are calling *the year of agents*.
 

@@ -15,7 +15,7 @@ Tasks tailored toward expertise and that tend to take several turns/graph runs a
 
 The concept of keeping the active agent in the managed State is powerful when we have workflows that tend to be maintained by the same agent until he is no longer the expert that should be taking care of it.
 
-#### Swarms with Subgraphs
+## Swarms with Subgraphs
 
 One powerful feature in LangGraph is that subgraphs can themselves be compiled as agent units. This means that we do not have the need to treat every agent as a standalone unit - sometimes the agent is actually a subgraph (a workflow compiled to behave as a single agent unit).
 
@@ -26,7 +26,7 @@ For example:
 
 By nesting these subgraphs inside the swarm, you keep complexity manageable while still benefiting from isolated specialists.
 
-#### Usage example: Chess Experts in a Swarm
+## Usage example: Chess Experts in a Swarm
 
 To make this concrete, imagine a small swarm with two agents:
 
@@ -35,7 +35,7 @@ To make this concrete, imagine a small swarm with two agents:
 
 In this setup, the Opening Expert focuses purely on theory, while the Coach ensures you stay in your head during the game. Together, they form a supportive loop — handing off control as needed.
 
-```
+```python
 from langgraph.prebuilt import create_react_agent
 from langgraph_swarm import create_handoff_tool, create_swarm
 
@@ -84,6 +84,6 @@ app = agent_swarm.compile()
 
 Here, the default\_active\_agent is used to signal the agent that should start by interacting with the user. The standard practice is to maintain an active\_agent in the State of the graph ([https://langchain-ai.github.io/langgraph/reference/swarm/#langgraph\_swarm.swarm.SwarmState](https://langchain-ai.github.io/langgraph/reference/swarm/#langgraph_swarm.swarm.SwarmState))
 
-#### Considerations
+## Considerations
 
 While swarm architectures are powerful, they are not always the best solution. If agents need to constantly hand off control, the interaction can feel fragmented and harder to manage. Likewise, when many agents are involved, each must be equipped with the appropriate hand-off tools for all the possible agents, which increases complexity and coordination overhead. In these cases, a simpler graph design even an architecture such as Supervisor may work better.
