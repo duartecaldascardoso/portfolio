@@ -1,30 +1,22 @@
-import { createSystem, defaultConfig } from "@chakra-ui/react";
-import { textStyles } from "./themeStyles/textStyles";
-import { semanticTokens } from "./themeStyles/semanticToken";
+import { createSystem, defaultConfig } from '@chakra-ui/react';
 
 export const system = createSystem(defaultConfig, {
+    globalCss: {
+        'html, body': {
+            bg: 'bg',
+            color: 'fg',
+        },
+        '::selection': { bg: 'yellow.200', color: 'gray.900' },
+        a: { textUnderlineOffset: '3px' },
+    },
     theme: {
-        textStyles,
         tokens: {
             fonts: {
-                heading: { value: "'Source Serif 4', serif" },
-                body: { value: "'Source Sans 3', sans-serif" },
-            },
-            colors: {
-                brand: {
-                    50: { value: "#fdf6e3" },
-                    100: { value: "#eee8d5" },
-                    200: { value: "#93a1a1" },
-                    300: { value: "#839496" },
-                    400: { value: "#657b83" },
-                    500: { value: "#586e75" },
-                    600: { value: "#073642" },
-                    700: { value: "#002b36" },
-                    800: { value: "#00212b" },
-                    900: { value: "#001a22" },
-                },
+                heading: { value: "'Inter', system-ui, sans-serif" },
+                body: { value: "'Inter', system-ui, sans-serif" },
+                serif: { value: "'Source Serif 4', Georgia, serif" },
+                mono: { value: "'JetBrains Mono', ui-monospace, monospace" },
             },
         },
-        semanticTokens: semanticTokens,
     },
 });

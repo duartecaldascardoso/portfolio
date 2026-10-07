@@ -4,19 +4,24 @@ import { ChakraProvider } from '@chakra-ui/react'
 import { ColorModeProvider } from './components/ui/color-mode.tsx'
 import { system } from "./theme.ts";
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom'
-import { Layout } from './components/layout/Layout';
+import { Layout } from './components/site/Layout';
 import HomePage from './pages/HomePage';
-import AboutPage from './pages/AboutPage';
-import PublicationsPage from './pages/PublicationsPage';
-import CoursesPage from './pages/CoursesPage';
+import BlogPage from './pages/BlogPage';
+import PostPage from './pages/PostPage';
 import ProjectsPage from './pages/ProjectsPage';
+import AboutPage from './pages/AboutPage';
+import LearningPage from './pages/LearningPage';
 
+const basename = import.meta.env.BASE_URL.replace(/\/$/, '')
+
+// public/404.html stores the requested path and sends the visitor to the site root,
+// so that deep links like /blog/some-post still load the app.
 const redirectPath = sessionStorage.getItem('redirect')
 if (redirectPath) {
     sessionStorage.removeItem('redirect')
     const parsedUrl = new URL(redirectPath, window.location.origin)
     const restoredPath = `${parsedUrl.pathname}${parsedUrl.search}${parsedUrl.hash}`
-    const normalizedPath = restoredPath !== '/dev-portfolio/' && restoredPath.endsWith('/')
+    const normalizedPath = restoredPath !== `${basename}/` && restoredPath.endsWith('/')
         ? restoredPath.slice(0, -1)
         : restoredPath
     window.history.replaceState(null, '', normalizedPath)
@@ -25,17 +30,20 @@ if (redirectPath) {
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <ChakraProvider value={system}>
-      <ColorModeProvider forcedTheme="light">
-        <BrowserRouter basename="/dev-portfolio">
+      <ColorModeProvider defaultTheme="system" enableSystem>
+        <BrowserRouter basename={basename}>
           <Routes>
             <Route element={<Layout />}>
               <Route path="/" element={<HomePage />} />
-              <Route path="/about" element={<AboutPage />} />
-              <Route path="/publications" element={<PublicationsPage />} />
-              <Route path="/courses" element={<CoursesPage />} />
-              <Route path="/books" element={<Navigate to="/courses" replace />} />
+              <Route path="/blog" element={<BlogPage />} />
+              <Route path="/blog/:slug" element={<PostPage />} />
               <Route path="/projects" element={<ProjectsPage />} />
-              <Route path="/resources" element={<Navigate to="/publications" replace />} />
+              <Route path="/about" element={<AboutPage />} />
+              <Route path="/learning" element={<LearningPage />} />
+              <Route path="/publications" element={<Navigate to="/blog" replace />} />
+              <Route path="/resources" element={<Navigate to="/blog" replace />} />
+              <Route path="/courses" element={<Navigate to="/learning" replace />} />
+              <Route path="/books" element={<Navigate to="/learning" replace />} />
               <Route path="/home" element={<Navigate to="/" replace />} />
               <Route path="*" element={<Navigate to="/" replace />} />
             </Route>
