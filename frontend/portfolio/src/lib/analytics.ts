@@ -38,7 +38,9 @@ export function usePageViews() {
     useEffect(() => {
         if (!code || import.meta.env.DEV) return;
         loadScript().then(() => {
-            window.goatcounter?.count?.({ path: pathname, title: document.title });
+            // Include the base path, so links in the GoatCounter dashboard open the right page.
+            const path = `${import.meta.env.BASE_URL.replace(/\/$/, '')}${pathname}`;
+            window.goatcounter?.count?.({ path, title: document.title });
         });
     }, [pathname]);
 }
