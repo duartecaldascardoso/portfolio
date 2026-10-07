@@ -5,9 +5,12 @@
     <meta charset="utf-8">
     <title>Redirecting...</title>
     <script>
+        // GitHub Pages serves this page for any unknown path. Remember the path and load the
+        // app from the site root (the first path segment, i.e. the repository name).
         var fallbackPath = window.location.pathname + window.location.search + window.location.hash;
+        var base = '/' + window.location.pathname.split('/')[1];
         sessionStorage.setItem('redirect', fallbackPath);
-        window.location.replace('/dev-portfolio');
+        window.location.replace(base + '/');
     </script>
 </head>
 
