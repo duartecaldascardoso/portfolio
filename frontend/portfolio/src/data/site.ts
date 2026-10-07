@@ -123,13 +123,14 @@ export const courses: Course[] = [
     { title: 'Model Context Protocol: Advanced Topics', provider: 'Anthropic', date: 'Feb 2026' },
 ];
 
-// isbns: editions to look up a cover for, in order of preference.
-export type Book = { title: string; author: string; isbns: string[]; note: string; href: string };
+// cover: an image in public/ to use; otherwise isbns are the editions to look a cover up for.
+export type Book = { title: string; author: string; cover?: string; isbns: string[]; note: string; href: string };
 
 export const books: Book[] = [
     {
         title: 'A Philosophy of Software Design',
         author: 'John Ousterhout',
+        cover: asset('images/books/a-philosophy-of-software-design.jpg'),
         isbns: ['9781732102217', '9781732102200'],
         note: 'How to fight complexity with deep modules, information hiding and interfaces that are simple to use.',
         href: 'https://web.stanford.edu/~ouster/cgi-bin/book.php',

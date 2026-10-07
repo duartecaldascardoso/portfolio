@@ -30,15 +30,15 @@ const ProviderLogo = ({ provider }: { provider: string }) => {
     );
 };
 
-// Tries Open Library for each edition, then Google Books, and falls back to a plain
+// Uses the local cover if there is one, then tries Open Library for each edition, then Google Books, and falls back to a plain
 // title card. Open Library answers a missing cover with a 1x1 image unless default=false.
 const coverSources = (isbns: string[]) => [
     ...isbns.map((isbn) => `https://covers.openlibrary.org/b/isbn/${isbn}-M.jpg?default=false`),
     ...isbns.map((isbn) => `https://books.google.com/books/content?vid=ISBN${isbn}&printsec=frontcover&img=1&zoom=1`),
 ];
 
-const BookCover = ({ isbns, title }: { isbns: string[]; title: string }) => {
-    const sources = coverSources(isbns);
+const BookCover = ({ cover, isbns, title }: { cover?: string; isbns: string[]; title: string }) => {
+    const sources = [...(cover ? [cover] : []), ...coverSources(isbns)];
     const [index, setIndex] = useState(0);
     const next = () => setIndex((current) => current + 1);
     const frame = { w: '44px', h: '64px', borderRadius: 'sm', borderWidth: '1px', borderColor: 'border', flexShrink: 0 } as const;
@@ -112,7 +112,7 @@ export default function LearningPage() {
                                 color="fg"
                                 _hover={{ textDecoration: 'none', '& .book-title': { textDecoration: 'underline' } }}
                             >
-                                <BookCover isbns={book.isbns} title={book.title} />
+                                <BookCover cover={book.cover} isbns={book.isbns} title={book.title} />
                                 <Box>
                                     <Text className="book-title" fontWeight="medium">{book.title}</Text>
                                     <Text fontSize="sm" color="fg.muted">{book.author}</Text>

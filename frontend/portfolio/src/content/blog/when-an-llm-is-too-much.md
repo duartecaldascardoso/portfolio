@@ -13,6 +13,8 @@ System One models are a breath of fresh air, because they can aid in these sorts
 
 The valuable step now is understanding how these extraction pipelines can be refactored to take advantage of this new kind of model, and there are many ways to go about it. The possible answers can be prepared in advance, so that the model is only ever asked to choose between them, such as asking, of all the amounts printed on this invoice, which one is the total. The document can also be handed over as it is, with the possible answers described in the question, which works nicely for something like a date.
 
+![Diagram comparing an LLM reading a whole invoice with a System One model choosing the total from amounts prepared in advance](/images/blog/when-an-llm-is-too-much/llm-vs-system-one.webp)
+
 There are almost certainly better ways to arrange this than the two I have mentioned, and working them out is the fun part of having a new kind of model to experiment with.
 
 Of course, most use cases still belong to an LLM. Reasoning, summarising and anything genuinely open ended are all better served there. But for the layer underneath, where we already know which field we want and simply need something to decide, these models are a considerably better fit.
