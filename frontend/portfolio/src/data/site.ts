@@ -42,7 +42,7 @@ export const projects: Project[] = [
         featured: true,
     },
     {
-        name: 'snappy diff',
+        name: 'snappy-diff',
         year: '2026',
         summary: 'An insanely fast side-by-side diff viewer.',
         description:
