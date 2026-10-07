@@ -1,0 +1,224 @@
+%-------------------------
+% Resume in Latex - Applied AI / Forward Deployed variant
+% Author : Duarte Cardoso
+% Based off of: https://github.com/sb2nov/resume
+% License : MIT
+%------------------------
+
+\documentclass[a4paper,11pt]{article}
+
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage[english]{babel}
+\usepackage{tabularx}
+\input{glyphtounicode}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+\addtolength{\oddsidemargin}{-0.6in}
+\addtolength{\evensidemargin}{-0.6in}
+\addtolength{\textwidth}{1.2in}
+\addtolength{\topmargin}{-.65in}
+\addtolength{\textheight}{1.3in}
+
+\urlstyle{same}
+
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+\titleformat{\section}{
+  \vspace{-5pt}\scshape\raggedright\large
+}{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
+
+\pdfgentounicode=1
+
+\hypersetup{pdftitle={Duarte Cardoso -- CV}, pdfauthor={Duarte Cardoso}}
+
+\newcommand{\resumeItem}[1]{
+  \item\small{
+    {#1 \vspace{-2pt}}
+  }
+}
+
+\newcommand{\resumeSubheading}[4]{
+  \vspace{-2pt}\item
+    \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & #2 \\
+      \textit{\small#3} & \textit{\small #4} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeSubSubheading}[2]{
+    \item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \textit{\small#1} & \textit{\small #2} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeProjectHeading}[2]{
+    \item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \small#1 & #2 \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.15in, label={}]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}[itemsep=0pt,topsep=2pt]}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+
+\begin{document}
+
+\begin{center}
+    \textbf{\Huge \scshape Duarte Cardoso} \\ \vspace{2pt}
+    \small Porto, Portugal (open to relocation within Europe) $|$ +351 927570952 $|$ \href{mailto:caldasdcardoso@gmail.com}{\underline{caldasdcardoso@gmail.com}} \\
+    \small \href{https://linkedin.com/in/duartecardoso}{\underline{linkedin.com/in/duartecardoso}} $|$
+    \href{https://github.com/duartecaldascardoso}{\underline{github.com/duartecaldascardoso}} $|$
+    \href{https://github.com/complydoc/complydoc}{\underline{github.com/complydoc/complydoc}} $|$
+    \href{https://duartecaldascardoso.github.io/portfolio/}{\underline{portfolio \& blog}} \\ \vspace{4pt}
+    \small \textit{AI Engineer with 2+ years building production LLM and agentic systems for enterprise document workflows in insurance and finance, after 1.5 years as a full-stack engineer. Author and sole maintainer of \textbf{complydoc}, open-source observability for document ingestion pipelines.}
+\end{center}
+
+%-----------EXPERIENCE-----------
+\section{Experience}
+  \resumeSubHeadingListStart
+
+    \resumeSubheading
+      {DareData Engineering}{Porto, Portugal (hybrid)}
+      {AI Engineer}{Jul 2026 -- Present}
+      \resumeItemListStart
+        \resumeItem{AI consultant for \textbf{Euronext}, designing, developing and deploying \textbf{cloud-native AI solutions on AWS and Azure} that automate operational workflows.}
+        \resumeItem{Main developer of \textbf{FreeFloat}, a \textbf{Dataiku}-integrated \textbf{browser agent} (Strands, AWS) automating free float review across \textbf{614 companies}, targeting $\sim$120 person-days saved annually across four review cycles.}
+      \resumeItemListEnd
+
+    \resumeProjectHeading
+      {\textbf{msg insur:it Iberia}}{Porto, Portugal (hybrid)}
+
+      \resumeSubSubheading{AI Engineer}{Aug 2024 -- Jul 2026}
+      \resumeItemListStart
+        \resumeItem{Built the company's \textbf{official Document Intelligence tool} on an \textbf{Agentic RAG architecture}, serving $\sim$90 users company-wide since launch.}
+        \resumeItem{Designed and developed \textbf{Configure:it}, a \textbf{multi-agent} Product Machine module converting documents into product configurations and enabling natural language querying.}
+        \resumeItem{Developed my Master's thesis in-house, the \textbf{Product Validation Accelerator Engine}, which combines \textbf{LLM agents} with \textbf{combinatorial testing}, boundary value analysis and equivalence partitioning to turn a plain-language request into a complete test suite, cutting insurance product validation from $\sim$6 months of manual client work to a handful of automated requests.}
+        \resumeItem{Supported a colleague's thesis on LLM-based extraction of insurance product characteristics from regulatory documents, leading to two co-authored papers (see Publications).}
+      \resumeItemListEnd
+
+      \resumeSubSubheading{Software Engineer (Intern, Feb -- Jun 2023)}{Feb 2023 -- Aug 2024}
+      \resumeItemListStart
+        \resumeItem{Full-stack engineer on an enterprise-grade insurance web application for a North American client, in an international, cross-functional team (\textbf{Java Spring}, \textbf{Backbone.js}, \textbf{PostgreSQL}); contributed to a \textbf{go-live with a single bug} reported across the whole production setup.}
+        \resumeItem{As an intern, built an end-to-end insurance product proof of concept, implementing workflows with \textbf{Camunda (BPMN/DMN)} integrated with Java services.}
+      \resumeItemListEnd
+
+  \resumeSubHeadingListEnd
+
+%-----------PROJECTS-----------
+\section{Projects}
+    \resumeSubHeadingListStart
+      \resumeProjectHeading
+          {\textbf{complydoc} $|$ \emph{Python, CLI, GitHub Actions, LangChain, LlamaIndex, Docling}}{\href{https://pypi.org/project/complydoc/}{\underline{pypi.org/project/complydoc}}}
+          \resumeItemListStart
+            \resumeItem{Sole author and maintainer of an \textbf{MIT-licensed observability layer for document ingestion pipelines}, published on PyPI: traces every loading, splitting and embedding step with \textbf{timing, token counts and cost}, so teams know what their documents contain before they reach an LLM.}
+            \resumeItem{Puts each loader's reading side by side with the source page, \textbf{a diff for extracted documents}, so engineers can see lost headings, broken tables or dropped lines and choose loaders on their own documents (LangChain, LlamaIndex, Unstructured, Docling, LlamaParse, Azure Document Intelligence).}
+            \resumeItem{Built \texttt{complydoc check}: \textbf{YAML policies} and a \textbf{GitHub Action} that gate ingestion in CI by flagging checksum-validated personal and financial identifiers, hidden text and \textbf{prompt-injection} passages, masked until reviewed. Runs fully locally, with outbound network blocked by default.}
+          \resumeItemListEnd
+      \resumeProjectHeading
+          {\textbf{me-agent} $|$ \emph{Python, LangChain, FastAPI, uv}}{\href{https://github.com/duartecaldascardoso/me-agent}{\underline{GitHub}}}
+          \resumeItemListStart
+            \resumeItem{End-to-end \textbf{agentic RAG} system for personal documents: ingestion of PDF, DOCX and Markdown into a vector store, retrieval, and an agent answering with that context, served through a \textbf{streaming FastAPI} endpoint and a CLI.}
+          \resumeItemListEnd
+      \resumeProjectHeading
+          {\textbf{snappy-diff} $|$ \emph{Rust, JavaScript}}{\href{https://github.com/duartecaldascardoso/snappy-diff}{\underline{GitHub}}}
+          \resumeItemListStart
+            \resumeItem{Fast side-by-side diff viewer for git branches, uncommitted changes and patch files, with keyboard navigation, file search and install scripts for macOS, Linux and Windows.}
+          \resumeItemListEnd
+      \resumeProjectHeading
+          {\textbf{Article Explainer with Swarm Architecture} $|$ \emph{Python, LangChain, Multi-Agent Systems}}{\href{https://github.com/duartecaldascardoso/article-explainer}{\underline{GitHub}}}
+          \resumeItemListStart
+            \resumeItem{Multi-agent explainer built on LangChain's Swarm pattern; \textbf{featured twice by LangChain on LinkedIn} as an exemplary implementation.}
+          \resumeItemListEnd
+    \resumeSubHeadingListEnd
+
+%-----------EDUCATION-----------
+\section{Education}
+  \resumeSubHeadingListStart
+    \resumeSubheading
+      {Faculty of Engineering, University of Porto (FEUP)}{Porto, Portugal}
+      {M.Sc. Software Engineering (18/20)}{Sep 2024 -- Jul 2026}
+      \resumeItemListStart
+        \resumeItem{Thesis defended with \textbf{19/20}.}
+      \resumeItemListEnd
+    \resumeSubheading
+      {Polytechnic of Porto, School of Engineering (ISEP)}{Porto, Portugal}
+      {B.Sc. Informatics and Computing Engineering (14/20)}{Sep 2020 -- Sep 2023}
+  \resumeSubHeadingListEnd
+
+%-----------PUBLICATIONS-----------
+\section{Publications}
+  \resumeSubHeadingListStart
+    \resumeSubheading
+        {Simplifying Complex Insurance Product Management with AI}{SEI 2025}
+        {\textbf{Best Paper}, co-author}{Nov 2025}
+        \resumeItemListStart
+          \resumeItem{Product Machine Explorer, an LLM- and agent-powered tool to explore complex insurance product models through natural language. \href{https://sei.dei.isep.ipp.pt/wp-content/uploads/2026/01/SEI25-LdA.pdf}{\underline{Proceedings}}.}
+        \resumeItemListEnd
+    \resumeSubheading
+        {Automated Extraction of Insurance Product Characteristics}{SEI 2025}
+        {Co-author}{Nov 2025}
+        \resumeItemListStart
+          \resumeItem{An AI agent workflow, supported by NLP and LLMs, extracting insurance product characteristics from regulatory documents with structured, quality-assured outputs.}
+        \resumeItemListEnd
+  \resumeSubHeadingListEnd
+
+%-----------WRITING-----------
+\section{Writing}
+ \begin{itemize}[leftmargin=0.15in, label={}]
+    \small{\item{
+     Write about LLMs, agents and document intelligence on my \href{https://duartecaldascardoso.github.io/portfolio/}{\underline{blog}} and LinkedIn (1,300+ followers), covering OCR versus vision LLMs for extraction, open-weight models in regulated industries and small decision models for extraction pipelines. A post on complydoc reached \textbf{13k+ impressions}.
+    }}
+ \end{itemize}
+
+%-----------CERTIFICATIONS-----------
+\section{Certifications}
+ \begin{itemize}[leftmargin=0.15in, label={}]
+    \small{\item{
+     \textbf{Claude with Amazon Bedrock} (Anthropic, Mar 2026) $\cdot$ \textbf{MCP: Advanced Topics} (Anthropic, Feb 2026) $\cdot$ \textbf{ML Model Development} (Databricks, Feb 2026)
+    }}
+ \end{itemize}
+
+%-----------LEADERSHIP-----------
+\section{Leadership}
+  \resumeSubHeadingListStart
+    \resumeSubheading
+      {NEI, ISEP Computer Science Student Association}{Porto, Portugal}
+      {Vice President (Communication member, Oct 2020 -- Aug 2021)}{Aug 2021 -- Aug 2022}
+      \resumeItemListStart
+        \resumeItem{Co-managed a team of close to 40 members running technology and student-company events.}
+      \resumeItemListEnd
+  \resumeSubHeadingListEnd
+
+%-----------TECHNICAL SKILLS-----------
+\section{Technical Skills}
+ \begin{itemize}[leftmargin=0.15in, label={}]
+    \small{\item{
+     \textbf{Languages}{: Python, TypeScript, JavaScript, SQL, Java, Rust} \\
+     \textbf{LLM \& Agents}{: Agentic RAG, multi-agent systems, MCP, prompt engineering, LangChain, LangGraph, Strands, FAISS, Qdrant} \\
+     \textbf{Evaluation \& Observability}{: LangFuse, LangSmith, MLflow, token and cost tracing} \\
+     \textbf{ML}{: PyTorch, Scikit-learn} \\
+     \textbf{Cloud \& Data}{: AWS, Azure, Dataiku, PostgreSQL} \\
+     \textbf{Engineering}{: FastAPI, Pydantic, Java Spring, Camunda, React, Docker, Terraform, GitHub Actions, CI/CD} \\
+     \textbf{Spoken languages}{: Portuguese (native), English (fluent), Spanish (proficient)}
+    }}
+ \end{itemize}
+
+\end{document}

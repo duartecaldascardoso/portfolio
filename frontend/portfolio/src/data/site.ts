@@ -4,7 +4,7 @@ export const links = {
     github: 'https://github.com/duartecaldascardoso',
     linkedin: 'https://www.linkedin.com/in/duartecardoso/',
     email: 'mailto:caldasdcardoso@gmail.com',
-    cv: asset('config/DuarteCardoso.pdf'),
+    cv: asset('Duarte_Cardoso_CV.pdf'),
     certifications: 'https://www.linkedin.com/in/duartecardoso/details/certifications/',
 };
 
