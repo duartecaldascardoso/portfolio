@@ -5,6 +5,7 @@ import { LuFileText, LuMail } from 'react-icons/lu';
 import { PostList } from '../components/site/PostList';
 import { Section } from '../components/site/Section';
 import { links, profileImage, projectId, projects } from '../data/site';
+import { workWithMePath } from '../content/workWithMe';
 import { posts } from '../lib/blog';
 import { useTitle } from '../lib/useTitle';
 
@@ -28,6 +29,28 @@ export default function HomePage() {
                             Duarte Cardoso
                         </Text>
                         <Text color="fg.muted">AI Engineer at DareData · Porto</Text>
+                        <Link
+                            asChild
+                            mt={3}
+                            display="inline-flex"
+                            alignItems="center"
+                            gap={2}
+                            fontSize="sm"
+                            lineHeight="1.2"
+                            color="fg"
+                            whiteSpace="nowrap"
+                            borderWidth="1px"
+                            borderColor="border"
+                            borderRadius="full"
+                            px={3}
+                            py={1}
+                            _hover={{ textDecoration: 'none', bg: 'bg.muted' }}
+                        >
+                            <RouterLink to={workWithMePath}>
+                                <Box as="span" boxSize="6px" borderRadius="full" bg="green.500" flexShrink={0} aria-hidden />
+                                Open to projects
+                            </RouterLink>
+                        </Link>
                     </Box>
                 </Flex>
 

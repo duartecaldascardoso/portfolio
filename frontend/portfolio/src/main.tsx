@@ -10,6 +10,8 @@ import BlogPage from './pages/BlogPage';
 import ProjectsPage from './pages/ProjectsPage';
 import AboutPage from './pages/AboutPage';
 import LearningPage from './pages/LearningPage';
+import WorkPage from './pages/WorkPage';
+import { workWithMePath } from './content/workWithMe';
 
 // Posts load the Markdown and code-highlighting libraries, so they are fetched only when a post is opened.
 const PostPage = lazy(() => import('./pages/PostPage'));
@@ -42,6 +44,7 @@ createRoot(document.getElementById('root')!).render(
               <Route path="/projects" element={<ProjectsPage />} />
               <Route path="/about" element={<AboutPage />} />
               <Route path="/learning" element={<LearningPage />} />
+              <Route path={workWithMePath} element={<WorkPage />} />
               <Route path="/publications" element={<Navigate to="/blog" replace />} />
               <Route path="/resources" element={<Navigate to="/blog" replace />} />
               <Route path="/courses" element={<Navigate to="/learning" replace />} />

@@ -5,12 +5,14 @@ import { useColorMode } from '../ui/color-mode';
 import ScrollToTop from '../utils/ScrollToTop';
 import { usePageViews } from '../../lib/analytics';
 import { links } from '../../data/site';
+import { workWithMePath } from '../../content/workWithMe';
 
 const nav = [
     { label: 'Blog', to: '/blog' },
     { label: 'Projects', to: '/projects' },
     { label: 'About', to: '/about' },
     { label: 'Learning', to: '/learning' },
+    { label: 'Work with me', to: workWithMePath },
 ];
 
 export const Layout = () => {
@@ -26,12 +28,21 @@ export const Layout = () => {
                     <Link asChild fontWeight="semibold" color="fg" _hover={{ textDecoration: 'none', color: 'fg.muted' }}>
                         <NavLink to="/">Duarte Cardoso</NavLink>
                     </Link>
-                    <HStack as="nav" gap={{ base: 4, md: 6 }} fontSize="sm">
+                    <HStack
+                        as="nav"
+                        w={{ base: 'full', sm: 'auto' }}
+                        gap={{ base: 4, md: 6 }}
+                        rowGap={2}
+                        fontSize="sm"
+                        wrap="wrap"
+                        justify="flex-start"
+                    >
                         {nav.map((item) => (
                             <Link
                                 key={item.to}
                                 asChild
                                 color="fg.muted"
+                                whiteSpace="nowrap"
                                 _hover={{ color: 'fg', textDecoration: 'none' }}
                                 css={{ '&.active': { color: 'var(--chakra-colors-fg)' } }}
                             >
