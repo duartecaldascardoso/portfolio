@@ -1,20 +1,23 @@
 import { Box, Container, Flex, HStack, IconButton, Link, Text } from '@chakra-ui/react';
-import { NavLink, Outlet } from 'react-router-dom';
+import { NavLink, Outlet, useLocation } from 'react-router-dom';
 import { LuMoon, LuSun } from 'react-icons/lu';
 import { useColorMode } from '../ui/color-mode';
 import ScrollToTop from '../utils/ScrollToTop';
 import { usePageViews } from '../../lib/analytics';
 import { links } from '../../data/site';
+import { workWithMeId } from '../../content/workWithMe';
 
-const nav = [
+const nav: { label: string; to: string; hash?: string }[] = [
     { label: 'Blog', to: '/blog' },
     { label: 'Projects', to: '/projects' },
     { label: 'About', to: '/about' },
     { label: 'Learning', to: '/learning' },
+    { label: 'Work with me', to: '/', hash: workWithMeId },
 ];
 
 export const Layout = () => {
     const { colorMode, toggleColorMode } = useColorMode();
+    const { hash } = useLocation();
     usePageViews();
 
     return (
@@ -26,16 +29,31 @@ export const Layout = () => {
                     <Link asChild fontWeight="semibold" color="fg" _hover={{ textDecoration: 'none', color: 'fg.muted' }}>
                         <NavLink to="/">Duarte Cardoso</NavLink>
                     </Link>
-                    <HStack as="nav" gap={{ base: 4, md: 6 }} fontSize="sm">
+                    <HStack
+                        as="nav"
+                        w={{ base: 'full', sm: 'auto' }}
+                        gap={{ base: 4, md: 6 }}
+                        rowGap={2}
+                        fontSize="sm"
+                        wrap="wrap"
+                        justify="flex-start"
+                    >
                         {nav.map((item) => (
                             <Link
-                                key={item.to}
+                                key={item.label}
                                 asChild
                                 color="fg.muted"
+                                whiteSpace="nowrap"
                                 _hover={{ color: 'fg', textDecoration: 'none' }}
                                 css={{ '&.active': { color: 'var(--chakra-colors-fg)' } }}
                             >
-                                <NavLink to={item.to}>{item.label}</NavLink>
+                                <NavLink
+                                    to={item.hash ? { pathname: item.to, hash: item.hash } : item.to}
+                                    end={Boolean(item.hash)}
+                                    className={item.hash ? () => (hash === `#${item.hash}` ? 'active' : '') : undefined}
+                                >
+                                    {item.label}
+                                </NavLink>
                             </Link>
                         ))}
                         <IconButton

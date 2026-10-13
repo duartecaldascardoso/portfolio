@@ -4,12 +4,13 @@ import { Link as RouterLink } from 'react-router-dom';
 
 type SectionProps = {
     title: string;
+    id?: string;
     more?: { label: string; to: string };
     children: ReactNode;
 };
 
-export const Section = ({ title, more, children }: SectionProps) => (
-    <Stack as="section" gap={5}>
+export const Section = ({ title, id, more, children }: SectionProps) => (
+    <Stack as="section" id={id} scrollMarginTop={id ? '24px' : undefined} gap={5}>
         <Flex justify="space-between" align="baseline">
             <Heading as="h2" fontSize="sm" fontWeight="medium" color="fg.muted">
                 {title}

@@ -5,6 +5,7 @@ import { LuFileText, LuMail } from 'react-icons/lu';
 import { PostList } from '../components/site/PostList';
 import { Section } from '../components/site/Section';
 import { links, profileImage, projectId, projects } from '../data/site';
+import { workWithMe, workWithMeId, workWithMeMailto } from '../content/workWithMe';
 import { posts } from '../lib/blog';
 import { useTitle } from '../lib/useTitle';
 
@@ -102,6 +103,27 @@ export default function HomePage() {
                             </RouterLink>
                         </Link>
                     ))}
+                </Stack>
+            </Section>
+
+            <Section id={workWithMeId} title={workWithMe.title}>
+                <Stack gap={3}>
+                    <Text color="fg.muted" lineHeight="1.7">{workWithMe.body}</Text>
+                    <Link
+                        href={workWithMeMailto}
+                        display="inline-flex"
+                        alignItems="center"
+                        gap={1.5}
+                        w="fit-content"
+                        color="fg"
+                        fontWeight="medium"
+                        textDecoration="underline"
+                        textDecorationColor="border.emphasized"
+                        _hover={{ textDecorationColor: 'fg' }}
+                    >
+                        <LuMail size={15} aria-hidden />
+                        {workWithMe.ctaLabel}
+                    </Link>
                 </Stack>
             </Section>
         </Stack>
