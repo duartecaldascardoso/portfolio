@@ -77,7 +77,7 @@ export default function LearningPage() {
                 </Text>
             </PageHeader>
 
-            <Stack gap={14}>
+            <Stack gap={{ base: 10, md: 14 }}>
                 <Section title="Courses" more={{ label: 'Certificates', to: links.certifications }}>
                     <Stack gap={4}>
                         {courses.map((course) => (

@@ -13,7 +13,7 @@ These are mixture-of-experts models, so a fraction of the network works on each 
 
 For teams in regulated industries this is a big step forward, because knowing where the documents go is often a blocker. With open weights you decide where the model runs, which version, and who gets to see the pages.
 
-You don't need to buy the hardware either. Companies like Nebius, Scaleway and OVHcloud rent GPUs by the hour, and Ornn priced what that means last month for a 120B mixture-of-experts model. On an A100, a 2020 card that Ornn's index puts at about $1 an hour, a million output tokens cost 29 cents with the GPU busy half the time. It beats the hosted API price for the same model (60 cents) once it is busy about a quarter of the day, and on an H100 a bit over half. Against the $10 that Claude Sonnet 5.5 and GPT-6.1 Sol charge, it gets there in under an hour.
+You don't need to buy the hardware either. Companies like Nebius, Scaleway and OVHcloud rent GPUs by the hour, and Ornn priced what that means last month for a 120B mixture-of-experts model. On an A100, a 2020 card that Ornn's index puts at about $1 an hour, a million output tokens cost 29 cents with the GPU busy half the time. It beats the hosted API price for the same model (60 cents) once it is busy about a quarter of the day, and on an H100 a bit over half. Against the $10 that Claude Sonnet 5.5 and GPT-6.1 Sol charge, it gets there in under an hour. Those are larger models, so that is a comparison of price, not capability.
 
 ![Chart of the cost of a million output tokens on a rented A100 and H100 against hours a day the GPU is busy, compared with API prices](/images/blog/open-weights-for-document-extraction/gpu-vs-api.webp)
 

@@ -20,7 +20,7 @@ export default function HomePage() {
     const featured = projects.filter((project) => project.featured);
 
     return (
-        <Stack gap={{ base: 14, md: 16 }}>
+        <Stack gap={{ base: 12, md: 16 }}>
             <Stack gap={6}>
                 <Flex align="center" gap={4}>
                     <Image src={profileImage} alt="Duarte Cardoso" boxSize="56px" borderRadius="full" objectFit="cover" />
@@ -71,7 +71,8 @@ export default function HomePage() {
                             _hover={{ color: 'fg.muted' }}
                         >
                             <item.icon size={15} aria-hidden />
-                            {item.label} ↗
+                            {item.label}
+                            <Box as="span" display={{ base: 'none', sm: 'inline' }}>↗</Box>
                         </Link>
                     ))}
                 </HStack>

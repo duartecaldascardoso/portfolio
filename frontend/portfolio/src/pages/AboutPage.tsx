@@ -41,7 +41,7 @@ export default function AboutPage() {
                 </Text>
             </PageHeader>
 
-            <Stack gap={14}>
+            <Stack gap={{ base: 10, md: 14 }}>
                 <Section title="Work">
                     <Timeline entries={work} />
                 </Section>

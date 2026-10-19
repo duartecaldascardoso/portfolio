@@ -1,23 +1,20 @@
 import { Box, Container, Flex, HStack, IconButton, Link, Text } from '@chakra-ui/react';
-import { NavLink, Outlet, useLocation } from 'react-router-dom';
+import { NavLink, Outlet } from 'react-router-dom';
 import { LuMoon, LuSun } from 'react-icons/lu';
 import { useColorMode } from '../ui/color-mode';
 import ScrollToTop from '../utils/ScrollToTop';
 import { usePageViews } from '../../lib/analytics';
 import { links } from '../../data/site';
-import { workWithMeId } from '../../content/workWithMe';
 
-const nav: { label: string; to: string; hash?: string }[] = [
+const nav = [
     { label: 'Blog', to: '/blog' },
     { label: 'Projects', to: '/projects' },
     { label: 'About', to: '/about' },
     { label: 'Learning', to: '/learning' },
-    { label: 'Work with me', to: '/', hash: workWithMeId },
 ];
 
 export const Layout = () => {
     const { colorMode, toggleColorMode } = useColorMode();
-    const { hash } = useLocation();
     usePageViews();
 
     return (
@@ -47,13 +44,7 @@ export const Layout = () => {
                                 _hover={{ color: 'fg', textDecoration: 'none' }}
                                 css={{ '&.active': { color: 'var(--chakra-colors-fg)' } }}
                             >
-                                <NavLink
-                                    to={item.hash ? { pathname: item.to, hash: item.hash } : item.to}
-                                    end={Boolean(item.hash)}
-                                    className={item.hash ? () => (hash === `#${item.hash}` ? 'active' : '') : undefined}
-                                >
-                                    {item.label}
-                                </NavLink>
+                                <NavLink to={item.to}>{item.label}</NavLink>
                             </Link>
                         ))}
                         <IconButton
@@ -69,7 +60,7 @@ export const Layout = () => {
                 </Flex>
             </Container>
 
-            <Box as="main" flex="1" py={{ base: 12, md: 16 }}>
+            <Box as="main" flex="1" py={{ base: 8, md: 16 }}>
                 <Container maxW="2xl" px={{ base: 5, md: 6 }}>
                     <Outlet />
                 </Container>

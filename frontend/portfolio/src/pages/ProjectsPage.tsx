@@ -14,7 +14,7 @@ export default function ProjectsPage() {
                 </Text>
             </PageHeader>
 
-            <Stack gap={14}>
+            <Stack gap={{ base: 10, md: 14 }}>
                 {projects.map((project) => (
                     <Box as="section" key={project.name} id={projectId(project.name)} scrollMarginTop="24px">
                         <Flex align="center" gap={3}>

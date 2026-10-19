@@ -31,7 +31,7 @@ export const Section = ({ title, id, more, children }: SectionProps) => (
 );
 
 export const PageHeader = ({ title, children }: { title: string; children?: ReactNode }) => (
-    <Stack gap={3} mb={{ base: 10, md: 12 }}>
+    <Stack gap={3} mb={{ base: 8, md: 12 }}>
         <Heading as="h1" fontSize={{ base: '2xl', md: '3xl' }} fontWeight="semibold" letterSpacing="-0.02em">
             {title}
         </Heading>
